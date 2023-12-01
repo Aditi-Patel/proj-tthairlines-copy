@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Itinerary</fullName>
+    <fields>Name</fields>
+    <fields>xDO_TTHAIR_ARR_CODE__c</fields>
+    <fields>xDO_TTHAIR_Arrival_Date__c</fields>
+    <fields>xDO_TTHAIR_DEP_CODE__c</fields>
+    <fields>xDO_TTHAIR_DEP_TIME__c</fields>
+    <fields>xDO_TTHAIR_Flight__c</fields>
+    <label>Itinerary</label>
+</CompactLayout>

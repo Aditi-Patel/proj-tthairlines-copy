@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SIA_PNR_Compact</fullName>
+    <fields>Name</fields>
+    <fields>xDO_TTHAIR_Contact__c</fields>
+    <label>SIA PNR Compact</label>
+</CompactLayout>

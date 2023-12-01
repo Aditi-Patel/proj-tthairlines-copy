@@ -1,0 +1,132 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global"
+    controller="tth_einsteinRepliesApexController">
+
+    <aura:attribute name="recordId" type="String" />
+
+    <aura:attribute name="title" type="String" default="Einstein Replies" />
+    <aura:attribute name="identifier" type="integer" default="1" />
+    <aura:attribute name="buttonAdjustLabel" type="String" default="Adjust" />
+    <aura:attribute name="buttonEditLabel" type="String" default="Edit" />
+    <aura:attribute name="buttonSendLabel" type="String" default="Send Reply" />
+    <aura:attribute name="sourceLabel" type="String" default="Sourced from" />
+    <aura:attribute name="buttonLastStep" type="String" default="Feedback" />
+    <aura:attribute name="KnowledgeName" type="String" default="New Article" />
+    <aura:attribute name="KnowledgeDetails" type="String"
+        default="This is a new Article as a result of the conversation" />
+
+    <aura:attribute name="currentStep" type="Integer" default="1" />
+    <aura:attribute name="maximumSteps" type="Integer" default="3" />
+    <!--<aura:attribute name="selectedFrom1" type="String" default="Commerce"/>
+    <aura:attribute name="selectedFrom2" type="String" default="Knowledge"/>
+    <aura:attribute name="selectedFrom3" type="String" default="Service"/>
+    <aura:attribute name="Message1" type="String"  />
+    <aura:attribute name="Message2" type="String" default="This is a reply message 2, that will be displayed in the Einstein GPT Style." />
+    <aura:attribute name="Message3" type="String" default="This is a reply message 3, that will be displayed in the Einstein GPT Style." />
+    <aura:attribute name="lastMessage" type="String" default="This is the last message" /> -->
+    <aura:attribute name="outputMessage" type="String" default="" />
+    <aura:attribute name="outputLabel" type="List" default="" />
+    <aura:attribute name="chatRecord" type="object" />
+    <aura:attribute name="chatReplies" type="List" />
+    <aura:attribute name="thinking" type="Boolean" default="false" />
+
+    <aura:attribute name="showFinalScreen" type="Boolean" default="false" />
+    <aura:attribute name="showBlankScreen" type="Boolean" default="false" />
+
+
+    <aura:attribute name="pageReference" type="Object" />
+    <lightning:conversationToolkitAPI aura:id="conversationKit" />
+
+    <aura:handler event="lightning:conversationNewMessage" action="{!c.onChatTranscriptCustomer}" />
+
+    <lightning:messageChannel type="lightning__conversationEndUserMessage" scope="APPLICATION"
+        onMessage="{!c.onChatTranscriptAgent}" />
+    <aura:handler event="lightning:conversationAgentSend" action="{!c.onChatTranscriptAgent}" />
+
+    <aura:handler event="lightning:conversationChatEnded" action="{!c.onChatEnded}" />
+    <lightning:navigation aura:id="navService" />
+    <lightning:pageReferenceUtils aura:id="pageRefUtils" />
+
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+
+    <lightning:card>
+        <aura:set attribute="title">
+            <lightning:icon class="slds-media__figure" iconName="utility:einstein" size="small" />
+            {! v.title }
+        </aura:set>
+        <aura:set attribute="footer">
+            <aura:if isTrue="{!v.showFinalScreen}">
+                <lightning:buttonIcon iconName="utility:like" alternativeText="Settings" title="Settings" />
+                <lightning:buttonIcon iconName="utility:dislike" alternativeText="Settings" title="Settings" />
+                <lightning:button onclick="{!c.createNewKnowledge}" variant="brand-outline" label="{!v.buttonLastStep}"
+                    title="{!v.buttonLastStep}" />
+                <aura:set attribute="else">
+                    <aura:if isTrue="{!!v.showBlankScreen}">
+                        <lightning:button variant="brand-outline" label="{!v.buttonAdjustLabel}" title="Adjust" />
+                        <lightning:button variant="brand-outline" label="{!v.buttonEditLabel}" title="Edit" />
+
+
+                        <aura:if isTrue="{!v.thinking}">
+                            <button
+                                class="slds-button slds-button_outline-brand eq-button slds-m-left_x-small einsteinRepBtn">
+                                <div class="slds-align_absolute-center">
+                                    <div class="slds-icon-eq slds-is-animated"
+                                        title="Description of the icon when needed">
+                                        <div class="slds-icon-eq__bar"></div>
+                                        <div class="slds-icon-eq__bar"></div>
+                                        <div class="slds-icon-eq__bar"></div>
+                                        <span class="slds-assistive-text">Text alternative when needed</span>
+                                    </div>
+                                </div>
+                            </button>
+                            <aura:set attribute="else">
+
+                                <lightning:button onclick="{!c.gotoStep}" iconName="utility:send" iconPosition="right"
+                                    variant="brand-outline" label="{!v.buttonSendLabel}" title="Send Reply" />
+                            </aura:set>
+                        </aura:if>
+                    </aura:if>
+                </aura:set>
+            </aura:if>
+        </aura:set>
+
+        <aura:if isTrue="{!v.showFinalScreen}">
+            <div class="slds-p-horizontal_small">
+                <p class="outputMessage">{!v.outputMessage}</p>
+            </div>
+            <aura:set attribute="else">
+                <aura:if isTrue="{!!v.showBlankScreen}">
+
+                    <div class="slds-p-horizontal_small">
+                        <div class="slds-size_1-of-1 slds-p-bottom_small slds-col">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-size_1-of-1 slds-col slds-p-bottom_small">
+                                    <p class="outputMessage" aura:id="changeIt">{!v.outputMessage}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-p-horizontal_small">
+                        <div class="source">
+                            <label>{!v.sourceLabel}</label>
+                            <aura:iteration items="{!v.outputLabel}" var="type">
+                                <lightning:badge label="{!type}" />
+                            </aura:iteration>
+                        </div>
+                    </div>
+                    <aura:set attribute="else">
+                        <div class="slds-size_1-of-1">
+                            <div class="slds-grid slds-wrap slds-p-around_medium">
+                                <div class="slds-size_1-of-1 slds-align_absolute-center" style="min-height:245px;">
+                                    <img style="max-width:60%"
+                                        src="https://res.cloudinary.com/btahub/image/upload/v1676350809/l4sodx4l2pkorexhbw17.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </aura:set>
+                </aura:if>
+
+            </aura:set>
+        </aura:if>
+
+    </lightning:card>
+</aura:component>

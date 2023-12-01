@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email_Itinerary</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Email Itinerary</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>location.replace(&apos;/email/author/emailauthor.jsp?retURL=/{!xDO_TTHAIR_Ininerary__c.Id}&amp;p3_lkid={!xDO_TTHAIR_Ininerary__c.Id}&amp;rtype=003&amp;p2_lkid={!xDO_TTHAIR_Ininerary__c.xDO_TTHAIR_ContactId__c}&amp;template_id=033Hn0000002vr8&apos;);</url>
+</WebLink>

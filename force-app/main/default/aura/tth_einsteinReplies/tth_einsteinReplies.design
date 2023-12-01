@@ -1,0 +1,13 @@
+<design:component>
+    <design:attribute name="buttonAdjustLabel" label="Label for Adjust Button" default="Adjust" />
+    <design:attribute name="buttonEditLabel" label="Label for Edit Button" default="Edit" />
+    <design:attribute name="buttonSendLabel" label="Label for Send Button" default="Send Reply" />
+    <design:attribute name="sourceLabel" label="Label for Source Badge" default="Sourced from" />
+    <design:attribute name="buttonLastStep" label="Label for Last Step Button" default="Feedback" />
+
+    <design:attribute name="maximumSteps" label="Maximum Steps" min="1" max="3" />
+
+    <design:attribute name="KnowledgeName" label="Title for new Knowledge Article" default="New Article Title" />
+    <design:attribute name="KnowledgeDetails" label="Description for new Knowledge Article"
+        default="This is a new Article as a result of the conversation" />
+</design:component>

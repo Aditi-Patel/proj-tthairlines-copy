@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>xDO_TTHAIR_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>HK Hold confirmed</fullName>
+                <default>false</default>
+                <label>HK Hold confirmed</label>
+            </value>
+            <value>
+                <fullName>RQ Requested</fullName>
+                <default>false</default>
+                <label>RQ Requested</label>
+            </value>
+            <value>
+                <fullName>PN Pending</fullName>
+                <default>false</default>
+                <label>PN Pending</label>
+            </value>
+            <value>
+                <fullName>UC Unable to confirm</fullName>
+                <default>false</default>
+                <label>UC Unable to confirm</label>
+            </value>
+            <value>
+                <fullName>WL Waitlisted</fullName>
+                <default>false</default>
+                <label>WL Waitlisted</label>
+            </value>
+            <value>
+                <fullName>NS No show</fullName>
+                <default>false</default>
+                <label>NS No show</label>
+            </value>
+            <value>
+                <fullName>UG Upgraded</fullName>
+                <default>false</default>
+                <label>UG Upgraded</label>
+            </value>
+            <value>
+                <fullName>DG Downgraded</fullName>
+                <default>false</default>
+                <label>DG Downgraded</label>
+            </value>
+            <value>
+                <fullName>NN Need.. pretty please</fullName>
+                <default>false</default>
+                <label>NN Need.. pretty please</label>
+            </value>
+            <value>
+                <fullName>SS Force sell.</fullName>
+                <default>false</default>
+                <label>SS Force sell.</label>
+            </value>
+            <value>
+                <fullName>DS Desires</fullName>
+                <default>false</default>
+                <label>DS Desires</label>
+            </value>
+            <value>
+                <fullName>MM Employee nonrev</fullName>
+                <default>false</default>
+                <label>MM Employee nonrev</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,27 @@
+
+.THIS .source {
+    margin-top: 1rem;
+}
+
+.THIS .source label {
+    margin-right: .25rem;
+}
+
+.THIS .outputMessage {
+    min-height: 50px;    
+}
+
+.THIS .eq-button {
+  min-height: 32px;
+  min-width: 85px;
+}
+
+.THIS .slds-icon-eq {
+    position: relative;
+    width: calc(14rem / 16);
+    height: calc(12rem / 16);
+}
+
+.THIS .text-weak {
+  color: #c9c9c9;
+}

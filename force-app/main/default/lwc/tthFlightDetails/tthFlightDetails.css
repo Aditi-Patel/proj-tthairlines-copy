@@ -1,0 +1,68 @@
+.dummy{
+	color : black;
+}
+.icon{
+  position: absolute;
+  top: 6px;
+  left: 10px;
+}
+.ticket-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+.ticket {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        margin: 10px;
+        width: 500px;
+        background-color: #f9f9f9;
+    }
+.flight-details{
+  font-weight: normal;
+  font-size: 16px;
+  margin-left: 12px;
+  /* color: #092f71; */
+    color: #848383;
+}
+.flight-number {
+        font-weight: bold;
+        font-size: 18px;
+        margin-top: 10px;
+}
+
+    .departure-city,
+    .departure-time,
+    .arrival-city,
+    .arrival-time {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+.arrival-code,
+.departure-code{
+            margin: 5px 0;
+            font-size: 14px;
+            color: #092f71;
+            font-size: 20px;
+
+    }
+.bullet-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.bullet-item::before {
+    content: '\2022';
+    font-size: 3.2em;
+    margin-right: 0.5em;
+}
+.image{
+     /* display: flex;*/
+  /* justify-content: center;  */
+    width: 50%;
+    padding-top: 30px;
+    /* padding-left: 30px; */
+    padding-right: 30px;
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ticket_Layout</fullName>
+    <fields>Name</fields>
+    <fields>xDO_TTHAIR_Booking_Class__c</fields>
+    <fields>xDO_TTHAIR_Flight__c</fields>
+    <fields>xDO_TTHAIR_PNR__c</fields>
+    <fields>xDO_TTHAIR_Seat__c</fields>
+    <label>Ticket Layout</label>
+</CompactLayout>
