@@ -1,6 +1,6 @@
 <template>
     <lightning-card>
-        <div class="ticket-container">
+        <div class="ticket-container" lwc:if={isFlightDetailsAvailable}>
             <template for:each={flightData} for:item="flight">
                 <div key={flight.Id} class="ticket">
                     <lightning-icon icon-name="custom:custom20" size="medium"></lightning-icon>
@@ -16,7 +16,8 @@
 
                             </p>
                         </div>
-                        <div class="image"><img src={flightJourneyImg} />
+                        <!-- <div class="image"><img src={flightJourneyImg} /> -->
+                        <div class="image"><img src="/resource/TTHAIRAssetFlow/ToFroFlight.png" />
                         </div>
 
                         <div class="slds-col_bump-right">
@@ -38,6 +39,9 @@
                     <!-- <p class="arrival-time">{flight.XDO_TTHAIR_Arrival_Time__c}</p> -->
                 </div>
             </template>
+        </div>
+        <div class="ticket-container" lwc:else>
+            <div class="slds-text-heading_medium">Flight Details not available!!</div>
         </div>
     </lightning-card>
 </template>
